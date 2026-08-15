@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  *, *::before, *::after {
+    box-sizing: border-box; /* Uključuje padding i border u ukupnu širinu elementa */
+  }
+   
+  body {
+    margin: 0px auto;
+    font-family: "Verdana";
+    font-weight: 300;
+	height: 100dvh;
+	overflow-x:hidden;
+  }
+   
+  form {
+    padding: 6px 15px 10px 15px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .main-banner {
+    display: block;
+    margin: 5px 5px auto auto; /* Gornja/donja margina 0, leva/desna automatska za centriranje */
+    width: 100%;    /* Slika se širi 100% na malim ekranima */
+    max-width: 536px; /* Na desktopu se zaustavlja na vaših 536px */
+    height: auto;   /* Sprečava izobličenje (spljoštenost) slike na telefonu */
+  }
+   
+  form label {
+    font-size: 1.2rem;
+    font-weight: normal;
+  }
+   
+  input {
+    font-family: "Lato";
+  }
+   
+  a {
+    color: #0000ff;
+    text-decoration: none;
+  }
+   
+  a:hover {
+    text-decoration: underline;
+  }
+   
+  #wrapper,
+  #loginform {
+    margin: 0 auto;
+    padding-bottom: 0px;
+    background: #eee;
+    width: 550px;
+    max-width: 100%;
+    border: 2px solid #212121;
+    border-radius: 4px;
+  }
+   
+  #loginform {
+    padding-top: 0px;
+    text-align: center;
+  }
+   
+  #loginform p {
+    padding: 10px 15px 5px 15px;
+    font-size: 1.2rem;
+    font-weight: normal;
+  }
+   
+  #chatbox {
+    text-align: left;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    padding: 10px;
+    background: #fff;
+    width: 95%;
+    height: calc(100vh - 200px);
+    border: 1px solid #a7a7a7;
+    overflow: auto;
+    border-radius: 4px;
+  }
+   
+  #usermsg {
+    flex: 1;
+    border-radius: 4px;
+    border: 1px solid #ff9800;
+	padding:0px 5px 0px 5px;
+	font-size: 1.15rem;
+  }
+   
+  #name {
+    border-radius: 4px;
+	width: 50%;
+    border: 1px solid #ff9800;
+    padding: 2px 8px;
+	font-size: 1.15rem;
+  }
+   
+  #submitmsg,
+  #enter{
+    background: #ff9800;
+    border: 2px solid #e65100;
+    color: white;
+    padding: 4px 10px;
+    font-weight: bold;
+    border-radius: 4px;
+  }
+   
+  .error {
+    color: #ff0000;
+  }
+   
+  #menu {
+    padding: 15px 25px 10px 25px;
+    display: flex;
+  }
+   
+  #menu p.welcome {
+	font-size: 1.0rem;
+    flex: 1;
+  }
+  
+  #fs-button {
+	text-decoration:none;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  #fs-button:hover {
+    transform: scale(1.4); /* Blago povećanje ikonice na hover */
+  }
+  
+  a#exit {
+    color: white;
+    background: #c62828;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+   
+  .msgln {
+    margin: 0 0 5px 0;
+  }
+   
+  .msgln span.left-info {
+    color: orangered;
+  }   
+  
+  .msgln span.join-info {
+    color: orangered;
+  }
+   
+  .msgln span.chat-time {
+    color: #666;
+    font-size: 80%;
+    vertical-align: middle;
+  }
+   
+  .msgln b.user-name, .msgln b.user-name-left {
+    font-weight: bold;
+    background: #546e7a;
+    color: white;
+    padding: 1px 4px 1px 4px;
+    font-size: 80%;
+    border-radius: 4px;
+    margin: 0 5px 0 5px;
+  }
+   
+  .msgln b.user-name-left {
+    background: orangered;
+  }
