@@ -28,17 +28,29 @@ document.addEventListener("DOMContentLoaded", function () {
 		.then(response => {
 			if (!response.ok) {
 				console.error("Greška pri slanju poruke.");
+			} else {
+				// Čitamo odgovor sa servera kao običan tekst
+				return response.text(); 
 			}
-		})
-		.catch(error => {
+		}).then(data => {
+			// Pražnjenje polja za unos, i eventualno fokusiranje na element
+			userMsgInput.value = "";
+			//userMsgInput.focus();
+			//submitBtn.focus();
+			
+			// Prikazujemo dobijeni tekst u alert dijalogu iz post.php odgovora (ako postoji)
+			if (data && data.trim() !== "") {
+				alert(data);
+				window.location.reload();
+			}
+		}).catch(error => {
 			console.error("Mrežni problem:", error);
 		});
-		// Pražnjenje polja za unos, i eventualno fokusiranje na element
-		userMsgInput.value = "";
-		//userMsgInput.focus();
-		//submitBtn.focus();
 	});
 });
+
+// Održavaj sesiju aktivnom
+setInterval(function(){ navigator.sendBeacon("./post.php"); }, 5 * 60 * 1000);
 
 // Audio obaveštenje za nove poruke
 function playNewMess(){
