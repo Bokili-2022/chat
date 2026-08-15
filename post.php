@@ -57,5 +57,7 @@ if (isset($_SESSION['name'])) {
         // 10. Zatvaramo fajl
         fclose($fp);
     }
+} else {
+	echo "The session with the server has been lost.\nPlease login again.";
 }
 ?>
