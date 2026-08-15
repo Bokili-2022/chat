@@ -6,11 +6,13 @@ A lightweight, real-time web chat application built entirely with **Vanilla Java
 * **Live Chat Messaging** – Send and receive messages instantly.
 * **Status Notifications** – Real-time updates when users join, leave, log out, or reconnect.
 * **Clean UI** – Simple, modern, and responsive chat interface.
+* **PWA Support** – Fully installable on Android, iOS, and desktop devices thanks to the included web manifest and icons.
+
 
 ## Technologies Used
-* **Frontend:** Vanilla JavaScript (ES6+), HTML5, CSS3
+* **Frontend:** Vanilla JavaScript (ES6+), HTML5, CSS3, **PWA (Progressive Web App)**
 * **Backend:** PHP
-* **Web Server:** Nginx
+* **Web Server:** Any server with PHP & HEAD request support (e.g., Nginx, Apache)
 
 ## Prerequisites
 To run this application locally, you will need:
