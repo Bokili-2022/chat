@@ -29,6 +29,13 @@ if(!isset($_SESSION['name']) && isset($_POST['enter']) && isset($_POST['name']))
     if($_POST['name'] != ""){
         $_SESSION['name'] = stripslashes(htmlspecialchars($_POST['name']));
 		$_SESSION['info'] = "y";
+		// Postavi kolačić za naziv korisničkog imena
+		setcookie('last_chat_user', $_SESSION['name'], [
+			'expires' => time() + 90*24*3600, 
+			'path' => '/', 
+			'httponly' => true,
+			'samesite' => 'Lax' // Dodatna moderna zaštita za kolačiće
+		]);
         $login_message = "<div class='msgln'><span class='join-info'><span class='chat-time'>".date("H:i")."</span><b class='user-name'>". $_SESSION['name'] ."</b>joined the chat.</span><br></div>";
         $log_file = "log.html";
         // 1. Otvaramo fajl samo JEDNOM za čitanje i pisanje
@@ -118,6 +125,8 @@ if(!isset($_SESSION['name']) && isset($_POST['enter']) && isset($_POST['name']))
     </head>
     <body>
     <?php
+	// Postavi korisničko ime sačuvano u kolačićima
+	$prefillUser = $_COOKIE['last_chat_user'] ?? '';
     if(!isset($_SESSION['name'])){
         echo
     '<div id="loginform">
@@ -126,7 +135,7 @@ if(!isset($_SESSION['name']) && isset($_POST['enter']) && isset($_POST['name']))
 	'.$errMsg.'
     <form action="" method="post">
       <label for="name">Name:</label>
-      <input type="text" name="name" id="name" autofocus  />
+      <input type="text" name="name" id="name" value="'. htmlspecialchars($prefillUser, ENT_QUOTES) .'" autofocus />
       <input type="submit" name="enter" id="enter" value="Enter" />
     </form>
   </div>';
